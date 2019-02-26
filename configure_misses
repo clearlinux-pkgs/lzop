@@ -1,0 +1,15 @@
+Configure miss: whether the C preprocessor needs special flags
+Configure miss: conio.h usability
+Configure miss: conio.h presence
+Configure miss: conio.h
+Configure miss: direct.h usability
+Configure miss: direct.h presence
+Configure miss: dos.h usability
+Configure miss: dos.h presence
+Configure miss: dos.h
+Configure miss: share.h usability
+Configure miss: share.h presence
+Configure miss: share.h
+Configure miss: sys/utime.h usability
+Configure miss: sys/utime.h presence
+Configure miss: alloca
