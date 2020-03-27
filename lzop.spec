@@ -4,7 +4,7 @@
 #
 Name     : lzop
 Version  : 1.04
-Release  : 1
+Release  : 2
 URL      : https://www.lzop.org/download/lzop-1.04.tar.gz
 Source0  : https://www.lzop.org/download/lzop-1.04.tar.gz
 Summary  : No detailed summary available
