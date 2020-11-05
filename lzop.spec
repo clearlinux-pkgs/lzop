@@ -4,7 +4,7 @@
 #
 Name     : lzop
 Version  : 1.04
-Release  : 2
+Release  : 3
 URL      : https://www.lzop.org/download/lzop-1.04.tar.gz
 Source0  : https://www.lzop.org/download/lzop-1.04.tar.gz
 Summary  : No detailed summary available
@@ -56,29 +56,34 @@ man components for the lzop package.
 
 %prep
 %setup -q -n lzop-1.04
+cd %{_builddir}/lzop-1.04
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1551217496
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1604608416
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1551217496
+export SOURCE_DATE_EPOCH=1604608416
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lzop
-cp COPYING %{buildroot}/usr/share/package-licenses/lzop/COPYING
+cp %{_builddir}/lzop-1.04/COPYING %{buildroot}/usr/share/package-licenses/lzop/4cc77b90af91e615a64ae04893fdffa7939db84c
 %make_install
 
 %files
@@ -94,7 +99,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/lzop/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/lzop/COPYING
+/usr/share/package-licenses/lzop/4cc77b90af91e615a64ae04893fdffa7939db84c
 
 %files man
 %defattr(0644,root,root,0755)
